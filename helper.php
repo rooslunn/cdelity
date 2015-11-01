@@ -7,6 +7,36 @@
  * @param mixed $value
  */
 
+
+assert_options(ASSERT_ACTIVE, true);
+assert_options(ASSERT_WARNING, false);
+assert_options(ASSERT_QUIET_EVAL, true);
+assert_options(ASSERT_BAIL, true);
+
+/**
+ * Custom handler for assertions
+ *
+ * @param $file
+ * @param $line
+ * @param $code
+ * @param null $desc
+ */
+function _assert_handler_($file, $line, $code, $desc = null)
+{
+//    echo "Assertion failed at $line: $code";
+    if ($desc) {
+        echo "$desc\n";
+    }
+//    echo PHP_EOL;
+}
+
+assert_options(ASSERT_CALLBACK, '_assert_handler_');
+
+/**
+ * Prints any value for debugging
+ *
+ * @param mixed $value
+ */
 function _e_($value) {
     if (is_array($value)) {
         $value = implode(', ', $value);
@@ -14,9 +44,17 @@ function _e_($value) {
     echo "$value\n";
 }
 
+/**
+ * Creates random integer array
+ *
+ * @param int $size
+ * @param int $min
+ * @param int $max
+ * @return array
+ */
 function _random_array_($size, $min, $max) {
     $a = [];
-    foreach (range(1, $size) as $v) {
+    for ($i = 1; $i <= $size; $i++) {
         $a[] = rand($min, $max);
     }
     return $a;
