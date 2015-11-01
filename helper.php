@@ -59,3 +59,12 @@ function _random_array_($size, $min, $max) {
     }
     return $a;
 }
+
+function _run_tests_(array $samples, callable $solution) {
+    $i = 1;
+    foreach ($samples as $expected => $params) {
+        $got = $solution($params);
+        assert($got === $expected, "Sample $i failed. Expected: $expected; Received: $got");
+        $i++;
+    }
+}

@@ -27,10 +27,11 @@ $samples = [
     120 => [-4, -6, 3, 4, 5],
 ];
 
-foreach ($samples as $expected => $params) {
-    $got = solution($params);
-    assert($got === $expected, "Failed. Expected: $expected; Received: $got");
-}
+_run_tests_($samples, 'solution');
+//foreach ($samples as $expected => $params) {
+//    $got = solution($params);
+//    assert($got === $expected, "Failed. Expected: $expected; Received: $got");
+//}
 
 _e_('Good job, Russ!');
 
