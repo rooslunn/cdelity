@@ -6,7 +6,11 @@
  * Time: 3:02 PM
  */
 
-function solution($A) {
+/**
+ * @param array $A
+ * @return int
+ */
+function solution(array $A) {
     $upper = max($A);
     $N = count($A);
     if ($N !== $upper) {

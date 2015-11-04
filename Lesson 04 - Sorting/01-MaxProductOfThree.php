@@ -15,9 +15,9 @@ include_once '../helper.php';
 function solution(array $a) {
     sort($a);
     $n = count($a);
-    $max2 = $a[$n-1]*$a[0]*$a[1];
-    $max3 = $a[$n-1]*$a[$n-2]*$a[$n-3];
-    return max($max2, $max3);
+    $max_lower = $a[$n-1]*$a[0]*$a[1];
+    $max_higher = $a[$n-1]*$a[$n-2]*$a[$n-3];
+    return max($max_lower, $max_higher);
 }
 
 $samples = [
