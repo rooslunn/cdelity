@@ -4,6 +4,9 @@
  * User: russ
  * Date: 10/22/15
  * Time: 4:26 PM
+ * @param $N
+ * @param $A
+ * @return array
  */
 
 function solution($N, $A) {

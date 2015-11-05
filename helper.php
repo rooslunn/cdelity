@@ -39,7 +39,7 @@ assert_options(ASSERT_CALLBACK, '_assert_handler_');
  */
 function _e_($value) {
     if (is_array($value)) {
-        $value = implode(', ', $value);
+        $value = sprintf('[%s]', implode(', ', $value));
     }
     echo "$value\n";
 }
@@ -68,3 +68,4 @@ function _run_tests_(array $samples, callable $solution) {
         $i++;
     }
 }
+
